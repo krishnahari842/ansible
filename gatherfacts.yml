@@ -1,0 +1,12 @@
+---
+- name: ansible playbook to copy the file
+  hosts: all
+  become: true
+  gather_facts: no # now ansble wont gather info about nodes
+  tasks:
+    - name: copy a file
+      copy:
+        src: /home/project/demodir1
+        dest: /home
+        mode: 0600
+        owner: john

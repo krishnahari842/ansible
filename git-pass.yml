@@ -1,0 +1,14 @@
+---
+- name: ansible playbook to test ansible valut
+  hosts: all
+  become: yes
+  vars_files:
+    - valut-pass.yml # in this file you have passwords
+  tasks:
+    - name: clone a repo
+      git:
+        repo: https://yankils:{{password}}@github.com/yankils/vault.git #here yankils is the user name & password at valut.pass.yml
+        #what if many passwords are mentioned in same file ?
+        dest: /opt/apache-tomcat-9.0.69/v9.0.69/bin
+#you need to run by ansbile-playbook -i hosts ansbile-vault.yml --ask-vault-pass
+#need to enter encrypted password for the file.

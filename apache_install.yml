@@ -1,0 +1,27 @@
+---
+- name: this playbook install httpd
+  hosts: all
+  become: true
+  tasks:
+    - name: install pacakege
+      yum:
+        name: httpd
+        state: installed
+    - name: install pacakege
+      service:
+        name: httpd
+        state: started
+---
+- name: this playbook uninstall httpd
+  hosts: all
+  become: true
+  tasks:
+    - name: stop pacakege
+      service:
+        name: httpd
+        state: stop
+    - name: uninstall pacakege
+      yum:
+        name: httpd
+        state: removed
+    

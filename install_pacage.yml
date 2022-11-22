@@ -1,0 +1,9 @@
+---
+- name: this playbook for install pacakeges
+  hosts: all
+  become : true
+  task:
+    - name: install pacakege
+      yum:
+        name: git
+        state: installed

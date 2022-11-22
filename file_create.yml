@@ -1,0 +1,9 @@
+---
+- name: this playbook for crating the files
+  hosts: all
+  become : true
+  task:
+    - name: creating the file
+      file:
+        path: /home/project/demofile #here demo file will be create
+        state: touch
